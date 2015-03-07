@@ -10,7 +10,7 @@ sample <- data[data$Date == "1/2/2007" | data$Date == "2/2/2007", ]
 x<-function(x1, x2){as.POSIXct(paste(x1, x2), format = "%d/%m/%Y %H:%M:%S")}
 sample$datetime <- mapply(x,sample$Date,sample$Time)
 
-png("plot3.png")
+png(file = paste(getwd(),"/plot3.png",sep=""),width=480,height=480,units="px")
 plot(sample$datetime, sample$Sub_metering_1, type="l", xaxt = "n",
      ylab = "Energy sub metering", xlab = "")
 lines(sample$datetime, sample$Sub_metering_2, col = "red")
