@@ -1,10 +1,7 @@
-
+# Filter out data from file with dates 01-Feb-2007 and 02-02-2007
 sample<-read.table("household_power_consumption.txt",sep=';',header=TRUE,skip=66636,nrows=2880,na.strings=c("?"))
 n<-names(read.table("household_power_consumption.txt",sep=';',header=TRUE,nrows=1))
 colnames(sample)<-n
-
-# We only require data from two dates
-sample <- data[data$Date == "1/2/2007" | data$Date == "2/2/2007", ]
 
 # Create a new column with the combined date and time
 x<-function(x1, x2){as.POSIXct(paste(x1, x2), format = "%d/%m/%Y %H:%M:%S")}
